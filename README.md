@@ -1,2 +1,3 @@
-# fix-lobby-host-start-game-button-visibility-and-start-conditions
-Exported from Caffeine project: Fix Lobby host Start Game button visibility and start conditions
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

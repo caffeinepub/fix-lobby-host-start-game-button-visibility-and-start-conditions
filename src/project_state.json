@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Multiplayer Spy Word party game: players create/join rooms via code, host can start when 3–10 players joined, one player is the spy (no word), others get a hidden word, players give one-word chat clues on timed turns, then vote; majority vote determines winner; chat remains enabled during voting.",
+  "architectural_notes": [],
+  "known_issues": [
+    "Start button not appearing for host when expected (after 3–10 players join)."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-fix-the-lobby-logic-so-the-host-is-correctly-detected-even-when-the-backend-assigns-a-host-playerid-that-is-not-1-e-g-after-other-rooms-have-already-been-created-ensuring-the-start-game-button-appears-for-the-host-when-appropriate",
+      "title": "Fix the lobby logic so the host is correctly detected even when the backend assigns a host playerId that is not 1 (e.g., after other rooms have already been created), ensuring the Start Game button appears for the host when appropriate.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-start-game-availability-rules-in-the-lobby-ui-to-match-the-intended-constraints-the-start-game-button-must-be-enabled-only-when-there-are-3-10-players-in-the-room-and-disabled-otherwise-with-accurate-helper-text-badges",
+      "title": "Update the Start Game availability rules in the lobby UI to match the intended constraints: the Start Game button must be enabled only when there are 3–10 players in the room (and disabled otherwise), with accurate helper text/badges.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Room creation and join-by-code flow for multiplayer sessions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Host-only Start button appears when 3–10 players have joined the room",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Game start assigns one random hidden word to all non-spy players and shows 'You are the spy' to the spy",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Chat-only clue phase with enforced one-word-per-player turn and 10-second timer per turn",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Voting phase after all turns; majority vote decides outcome (spy caught => players win, wrong vote => spy wins) with chat enabled during voting",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Fix Lobby host Start Game button visibility and start conditions",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

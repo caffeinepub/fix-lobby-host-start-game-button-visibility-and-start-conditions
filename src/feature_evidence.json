@@ -1,0 +1,43 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-fix-the-lobby-logic-so-the-host-is-correctly-detected-even-when-the-backend-assigns-a-host-playerid-that-is-not-1-e-g-after-other-rooms-have-already-been-created-ensuring-the-start-game-button-appears-for-the-host-when-appropriate",
+      "featureTitle": "Fix the lobby logic so the host is correctly detected even when the backend assigns a host playerId that is not 1 (e.g., after other rooms have already been created), ensuring the Start Game button appears for the host when appropriate.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/LobbyPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-start-game-availability-rules-in-the-lobby-ui-to-match-the-intended-constraints-the-start-game-button-must-be-enabled-only-when-there-are-3-10-players-in-the-room-and-disabled-otherwise-with-accurate-helper-text-badges",
+      "featureTitle": "Update the Start Game availability rules in the lobby UI to match the intended constraints: the Start Game button must be enabled only when there are 3–10 players in the room (and disabled otherwise), with accurate helper text/badges.",
+      "files": [
+        "frontend/src/pages/LobbyPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

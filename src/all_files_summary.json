@@ -1,0 +1,22 @@
+{
+  "backend/main.mo": "Motoko backend managing rooms, players, game state, drawings, and votes with functions for creating/joining rooms and starting games.",
+  "feature_evidence.json": "Feature evidence report listing implemented feature IDs, associated files, components, tests, and confidence levels.",
+  "frontend-file-summaries.txt": "Prewritten summaries describing responsibilities of key frontend files including pages, components, hooks, and styles.",
+  "frontend/index.css": "Tailwind base styles defining OKLCH color variables, theming rules, and dark mode overrides.",
+  "frontend/index.html": "HTML entry point loading the React app root and main script.",
+  "frontend/src/App.tsx": "Main React component controlling navigation between home, lobby, and game screens with QueryClientProvider and global game context.",
+  "frontend/src/components/DrawingScreen.tsx": "Turn‑based drawing component handling canvas strokes, timers, local previews, stroke submission, and transition on completion.",
+  "frontend/src/components/ResultsScreen.tsx": "Displays round results, determines eliminated player and win conditions, and allows host to trigger next round.",
+  "frontend/src/components/RoleRevealScreen.tsx": "Displays the player's role with a countdown and triggers onComplete after the timer ends.",
+  "frontend/src/components/VotingScreen.tsx": "Lets active players vote for a suspected spy, tracks selections, and proceeds once all votes are in.",
+  "frontend/src/hooks/useActor.ts": "Creates and manages a backend actor tied to the user's identity, invalidating related queries on change.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides Internet Identity auth context, handling login, stored identities, and login state tracking.",
+  "frontend/src/hooks/useQueries.ts": "Defines React Query hooks for room actions like creating, joining, polling state, drawing submissions, and voting.",
+  "frontend/src/index.css": "Tailwind base setup defining theme variables for light and dark modes.",
+  "frontend/src/main.tsx": "Bootstraps the React app with InternetIdentityProvider and React Query client.",
+  "frontend/src/pages/GamePage.tsx": "Coordinates the game flow screens based on backend state while managing local transition control.",
+  "frontend/src/pages/HomePage.tsx": "UI for creating or joining a room, handling name input, room code generation, and navigation to the lobby after successful mutations.",
+  "frontend/src/pages/LobbyPage.tsx": "Displays room state, resolves player ID, shows players, and allows the host to start the game when conditions are met.",
+  "frontend/tailwind.config.js": "Tailwind configuration defining theme extensions, colors, animations, and plugins.",
+  "project_state.json": "Project state metadata tracking game summary, known issues, and pending feature requests."
+}

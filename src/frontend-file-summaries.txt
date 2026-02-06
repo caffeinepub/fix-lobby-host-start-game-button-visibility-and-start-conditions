@@ -1,0 +1,12 @@
+{
+  "frontend/src/App.tsx": "Main application component managing screen navigation between home, lobby, and game screens with shared game context state; now properly wraps app with QueryClientProvider and passes setGameContext to LobbyPage for player ID resolution.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for backend operations including createRoom, joinRoom, getRoomState with polling, startGame with correct backend parameters (roomCode and hostPlayerId), submitDrawing, and vote mutations with proper error handling and cache invalidation.",
+  "frontend/src/pages/HomePage.tsx": "Home screen with create/join room functionality, player name input, and room code generation/entry; now passes null playerId to allow LobbyPage to resolve it from room state.",
+  "frontend/src/pages/LobbyPage.tsx": "Lobby screen displaying room code, player list with real-time updates via React Query polling, and Start Game button visible only to host when 3-10 players are present (updated from 2-10), with proper host detection via room state and loading state indicator.",
+  "frontend/src/pages/GamePage.tsx": "Game orchestrator managing state transitions with improved transition handling, loading states, error handling, and a transitioning overlay to prevent abrupt view changes between role reveal, drawing, voting, and results phases.",
+  "frontend/src/components/RoleRevealScreen.tsx": "Role reveal screen with 5-second countdown that smoothly transitions to drawing phase with completion state tracking, displays \"You are the Spy\" message for spy and word for innocent players, with a \"Get Ready!\" indicator when countdown finishes.",
+  "frontend/src/components/DrawingScreen.tsx": "Interactive drawing canvas with turn-based drawing (15-second turns), real-time stroke synchronization, Undo/Clear/Vote buttons, error handling for failed submissions, and visual overlay when waiting for other players' turns.",
+  "frontend/src/components/VotingScreen.tsx": "Voting interface allowing players to vote for suspected spy with vote count display and automatic progression when all votes are cast.",
+  "frontend/src/components/ResultsScreen.tsx": "Results screen showing elimination outcome, win/loss conditions, and controls for starting next round or returning home, with proper null checking for playerId before calling startGame mutation and error handling with toast notifications.",
+  "frontend/src/index.css": "Global styles with OKLCH color system featuring purple primary colors, drawing-themed palette for light and dark modes."
+}

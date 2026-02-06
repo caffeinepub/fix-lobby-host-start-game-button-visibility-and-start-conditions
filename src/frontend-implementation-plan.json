@@ -1,0 +1,49 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix lobby host detection and Start Game enablement rules",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Correctly detect the lobby host without relying on hardcoded playerId=1 so host-only controls (Start Game) render for the true host.",
+      "acceptanceCriteria": [
+        "After creating a new room, the creator is shown as Host in the lobby UI (Host badge visible).",
+        "After creating a new room, the creator sees the Start Game button (host-only controls) without relying on a hardcoded playerId=1.",
+        "After joining an existing room, the joining player is not incorrectly treated as host."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Remove the hardcoded creator playerId=1 when navigating to the lobby after room creation; treat playerId as unknown until fetched from room state to avoid incorrect host assumptions."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Adjust the lobby navigation/game context plumbing to support an unknown playerId (nullable) on entry, so LobbyPage can resolve the correct player from the polled room state."
+        },
+        {
+          "path": "frontend/src/pages/LobbyPage.tsx",
+          "operation": "modify",
+          "description": "Fix current-player resolution and host detection by deriving the local player from room state (prefer stored playerId when present; otherwise match by playerName) and determine host via room.host and/or Player.isHost; ensure Start Game button visibility is based on true host detection. Continue using existing shadcn-ui Button/Badge/Card components for rendering host controls and status; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Match Start Game availability rules to 3–10 players, with correct disabled states and helper text/badges.",
+      "acceptanceCriteria": [
+        "With 1–2 players in the room, the Start Game button is visible to the host but disabled, and the UI indicates more players are needed.",
+        "With 3–10 players in the room, the Start Game button is enabled for the host.",
+        "With 11+ players (if ever possible), the Start Game button is disabled and the UI indicates the room is not in a startable state."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LobbyPage.tsx",
+          "operation": "modify",
+          "description": "Update Start Game enablement from 2–10 to 3–10 players and refine lobby UI status messaging: show host-only Start Game button always for the host but disabled with 'need more players' guidance for 1–2 players, enabled for 3–10, and disabled with a 'too many players / not startable' indication for 11+. Keep badges/helper text consistent with these thresholds using existing shadcn-ui Badge/Button components; verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

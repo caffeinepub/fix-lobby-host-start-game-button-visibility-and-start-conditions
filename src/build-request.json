@@ -1,0 +1,55 @@
+{
+  "kind": "build_request",
+  "title": "Fix Lobby host Start Game button visibility and start conditions",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Fix the lobby logic so the host is correctly detected even when the backend assigns a host playerId that is not 1 (e.g., after other rooms have already been created), ensuring the Start Game button appears for the host when appropriate.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-1"
+        ],
+        "quotes": [
+          "Start button is not come fix it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "After creating a new room, the creator is shown as Host in the lobby UI (Host badge visible).",
+        "After creating a new room, the creator sees the Start Game button (host-only controls) without relying on a hardcoded playerId=1.",
+        "After joining an existing room, the joining player is not incorrectly treated as host."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Update the Start Game availability rules in the lobby UI to match the intended constraints: the Start Game button must be enabled only when there are 3–10 players in the room (and disabled otherwise), with accurate helper text/badges.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-1"
+        ],
+        "quotes": [
+          "Start button is not come fix it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "With 1–2 players in the room, the Start Game button is visible to the host but disabled, and the UI indicates more players are needed.",
+        "With 3–10 players in the room, the Start Game button is enabled for the host.",
+        "With 11+ players (if ever possible), the Start Game button is disabled and the UI indicates the room is not in a startable state."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (Shadcn components are read-only).",
+    "Keep the backend as a single Motoko actor in backend/main.mo."
+  ],
+  "nonGoals": [
+    "Adding new gameplay features (chat rules, voting changes, new game states).",
+    "Changing authentication or adding third-party auth providers."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
